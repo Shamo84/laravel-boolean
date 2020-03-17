@@ -18,3 +18,5 @@ Route::get('/', function () {
 })->name("home");
 
 Route::get('/carriere', "ExStudenteController@Show")->name("carriere");
+
+Route::get('/carriere/{id}', "ExStudenteController@ShowStudent")->name("ShowStudent");
