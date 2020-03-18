@@ -19,4 +19,4 @@ Route::get('/', function () {
 
 Route::get('/carriere', "ExStudenteController@Show")->name("carriere");
 
-Route::get('/carriere/{id}', "ExStudenteController@ShowStudent")->name("ShowStudent");
+Route::get('/carriere/studente/{id}', "ExStudenteController@ShowStudent")->name("ShowStudent");

@@ -1,20 +1,8 @@
 @include('partials._header')
 
-<header>
-  <div class="navbar">
-    <span class="logo">
-      <img src="https://www.boolean.careers/images/common/logo.png" alt="logo boolean">
-    </span>
-    <span>HOME</span>
-    <span>CORSO</span>
-    <span>DOPO IL CORSO</span>
-    <span>LEZIONE GRATUITA</span>
-  </div>
-</header>
 <main>
   <div class="container">
-    @foreach ($data as $key => $student)
-      <a class="student" href="{{route("ShowStudent", ["id" => $key])}}">
+      <a class="student" href="">
         <div class="main-info">
           <img src="{{$student["foto"]}}" alt="">
           <div class="titolo">
@@ -24,7 +12,6 @@
         </div>
         <p>{{$student["informazioni"]}}</p>
       </a>
-    @endforeach
   </div>
 </main>
 
