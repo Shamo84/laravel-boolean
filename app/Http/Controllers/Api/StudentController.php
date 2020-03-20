@@ -36,30 +36,24 @@ class StudentController extends Controller
     }
 
   public function filter(Request $request)
-    {
-        // $students = config('students.students');
-        $students = $this->students;
-        $data = $request->all();
-  
-        if(!empty($data['age'])) {
-            $age = $data['age'];
-        }
-        if(!empty($data['name'])) {
-            $name = $data['name'];
-        }
-
-
-        $studentsFiltered = [];
-
-        //filtriamo su age
-        if(!empty($age)) {
-            foreach ($students as $student) {
-                if ($student['age'] == $age) {
-                    $studentsFiltered[] = $student;
-                }
-            }
-        }
-
-        return response()->json($studentsFiltered);
+  {
+    $students = config('students.students');
+    $data = $request->all();
+    $studentsFiltered = $students;
+    foreach ($data as $key => $value) {
+      $studentsFiltered = $this->filterBy($studentsFiltered, $key, $value);
+    }
+    return response()->json($studentsFiltered);
   }
+
+  private function filterBy($array, $key, $value)
+  {
+    $filtered = [];
+    foreach ($array as $element) {
+      if ($element[$key] == $value) {
+        $filtered[] = $element;
+      }
+    }
+    return $filtered;
   }
+}
