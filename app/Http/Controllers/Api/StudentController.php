@@ -14,30 +14,21 @@ class StudentController extends Controller
     $this->students = config("students.students");
   }
 
-  public function age()
+  public function getForAge($age)
   {
     $students = $this->students;
-    return response()->json($students);
-  }
-  public function getForAge($age)
-    {
-        $students = $this->students;
-
-        $studentsFiltered = [];
-
-        foreach ($students as $student) {
-            if($student['age'] == $age) {
-                $studentsFiltered[] = $student;
-            }
-        }
-
-        return response()->json($studentsFiltered);
-
+    $studentsFiltered = [];
+    foreach ($students as $student) {
+      if($student['age'] == $age) {
+        $studentsFiltered[] = $student;
+      }
     }
+    return response()->json($studentsFiltered);
+  }
 
   public function filter(Request $request)
   {
-    $students = config('students.students');
+    $students = $this->students;
     $data = $request->all();
     $studentsFiltered = $students;
     foreach ($data as $key => $value) {

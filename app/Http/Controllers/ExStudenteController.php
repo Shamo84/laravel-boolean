@@ -18,9 +18,14 @@ class ExStudenteController extends Controller
       return view("carriere", compact("data"));
     }
 
-    public function ShowStudent($id)
+    public function ShowStudent($slug)
     {
-      $student = $this->students[$id];
-      return view("carriere-show", compact("student"));
+      $students = $this->students;
+      foreach ($students as $student) {
+        if ($student["slug"] == $slug) {
+          $mystudent = $student;
+        }
+      }
+      return view("carriere-show", compact("mystudent"));
     }
 }

@@ -13,7 +13,7 @@
   </form>
   <div class="container">
     @foreach ($data as $key => $student)
-      <a class="student" href="{{route("ShowStudent", ["id" => $key])}}">
+      <a class="student" href="{{route("ShowStudent", ["slug" => $student["slug"]])}}">
         <div class="main-info">
           <img src="{{$student["img"]}}" alt="">
           <div class="titolo">
@@ -29,4 +29,16 @@
 
 <footer>
 </footer>
+<script id="entry-template" type="text/x-handlebars-template">
+  <a class="student" href="{{route("ShowStudent", ["slug" => $student["slug"]])}}">
+    <div class="main-info">
+      <img src="@{{img}}" alt="@{{name}}">
+      <div class="titolo">
+        <h2>@{{name}} (@{{age}})</h2>
+        <h3>Lavora presso: @{{company}} come @{{role}}</h3>
+      </div>
+    </div>
+    <p>@{{information}}</p>
+  </a>
+</script>
 @include('partials._footer')

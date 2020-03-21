@@ -19,7 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::namespace('api')->group(function () {
-    Route::post('/students/age', 'StudentController@age');
     Route::post('/students/age/{age}', 'StudentController@getForAge');
     Route::post('/students/filter', 'StudentController@filter');
 });

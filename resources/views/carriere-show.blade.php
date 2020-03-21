@@ -4,13 +4,13 @@
   <div class="container">
       <a class="student" href="">
         <div class="main-info">
-          <img src="{{$student["img"]}}" alt="">
+          <img src="{{$mystudent["img"]}}" alt="{{$mystudent["name"]}}">
           <div class="titolo">
-            <h2>{{$student["name"]}} ({{$student["age"]}})</h2>
-            <h3>Lavora presso: {{$student["company"]}} come {{$student["role"]}}</h3>
+            <h2>{{$mystudent["name"]}} ({{$mystudent["age"]}})</h2>
+            <h3>Lavora presso: {{$mystudent["company"]}} come {{$mystudent["role"]}}</h3>
           </div>
         </div>
-        <p>{{$student["information"]}}</p>
+        <p>{{$mystudent["information"]}}</p>
       </a>
   </div>
 </main>
