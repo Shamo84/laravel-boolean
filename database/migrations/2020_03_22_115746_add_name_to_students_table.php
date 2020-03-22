@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class FirstMigration extends Migration
+class AddNameToStudentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class FirstMigration extends Migration
      */
     public function up()
     {
-      Schema::create('students', function (Blueprint $table)
-      {
-        $table->id();
-        $table->string('name');
-        $table->timestamps();
-      });
+        Schema::table('students', function (Blueprint $table) {
+          $table->text("name");
+        });
     }
 
     /**
@@ -28,6 +25,8 @@ class FirstMigration extends Migration
      */
     public function down()
     {
-      Schema::drop('students');
+        Schema::table('students', function (Blueprint $table) {
+         $table->dropColumn('name');
+        });
     }
 }
